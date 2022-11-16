@@ -16,20 +16,14 @@ export const ProductTable = ({ headers, products }: ProductTableProps) => {
       <Table sx={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
-            {headers.map((header, i) => (
-              <TableCell key={i}>{header}</TableCell>
+            {headers.map((header) => (
+              <TableCell key={header}>{header}</TableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {products.map((row, i) => (
-            <TableRow
-              key={row.PriceValueId + i}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.PriceValueId}
-              </TableCell>
+            <TableRow key={row.PriceValueId + i}>
               <TableCell component="th" scope="row">
                 {row.MarketId}
               </TableCell>

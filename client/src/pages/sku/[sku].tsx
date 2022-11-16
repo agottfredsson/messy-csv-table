@@ -7,7 +7,7 @@ import { formatArray } from "./helpers";
 import { IGetStaticProps, SkuProps } from "./types";
 
 export default function Sku({ data }: SkuProps) {
-  const headers = ["ID", "Marknad", "Pris", "Valuta", "Start och slut"];
+  const tableHeaders = ["Marknad", "Pris", "Valuta", "Start och slut"];
 
   if (!data)
     return (
@@ -16,7 +16,7 @@ export default function Sku({ data }: SkuProps) {
       />
     );
 
-  return <ProductTable headers={headers} products={data} />;
+  return <ProductTable headers={tableHeaders} products={data} />;
 }
 export async function getStaticPaths() {
   return {

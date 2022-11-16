@@ -8,17 +8,17 @@ export const formatArray = (productsArr: Product[]) => {
   return prices;
 };
 
-const appendCorrectIntervals = (arr: Product[]) => {
-  if (arr.length == 1) return arr;
+const appendCorrectIntervals = (products: Product[]) => {
+  if (products.length == 1) return products;
 
   const finish: Product[] = [];
-  arr.forEach((e, i) => {
+  products.forEach((product, i) => {
     if (i == 0) return;
     finish.push({
-      ...arr[i - 1],
-      ValidUntil: e.ValidFrom,
+      ...products[i - 1],
+      ValidUntil: product.ValidFrom,
     });
-    if (i == arr.length - 1) finish.push(e);
+    if (i == products.length - 1) finish.push(product);
   });
 
   return finish;
