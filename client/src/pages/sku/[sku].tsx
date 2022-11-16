@@ -1,5 +1,4 @@
 import { gql } from "@apollo/client";
-import client from "../../apollo-client";
 import {
   TableHead,
   TableRow,
@@ -11,7 +10,9 @@ import {
   CircularProgress,
 } from "@mui/material";
 
-import { formatArray, Product } from "./helper";
+import client from "../../apollo-client";
+import { formatArray } from "./helper";
+import { Product } from "../../types";
 
 interface HomeProps {
   data: Product[];
