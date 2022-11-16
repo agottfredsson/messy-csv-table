@@ -6,6 +6,6 @@ export type Product = {
   MarketId: string;
   CurrencyCode: string;
   ValidFrom: string;
-  ValidUntil: string;
+  ValidUntil: string | null;
   UnitPrice: string;
 };
