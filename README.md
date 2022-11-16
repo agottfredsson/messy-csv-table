@@ -2,10 +2,10 @@
 
 cd client\
 yarn install\
-yarn dev\
+yarn dev
 
 cd server\
 yarn install\
-yarn dev\
+yarn dev
 
 enjoy!
