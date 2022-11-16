@@ -6,18 +6,19 @@ import { ProductTable } from "../../components";
 import { formatArray } from "./helpers";
 import { IGetStaticProps, SkuProps } from "./types";
 
-export default function Sku({ data }: SkuProps) {
+export default function Sku({ products }: SkuProps) {
   const tableHeaders = ["Marknad", "Pris", "Valuta", "Start och slut"];
 
-  if (!data)
+  if (!products)
     return (
       <CircularProgress
         style={{ position: "absolute", top: "50%", left: "50%" }}
       />
     );
 
-  return <ProductTable headers={tableHeaders} products={data} />;
+  return <ProductTable headers={tableHeaders} products={products} />;
 }
+
 export async function getStaticPaths() {
   return {
     paths: ["/sku/sku"],
@@ -46,7 +47,7 @@ export async function getStaticProps({ params }: IGetStaticProps) {
 
   return {
     props: {
-      data: res,
+      products: res,
     },
   };
 }

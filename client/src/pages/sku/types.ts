@@ -7,5 +7,5 @@ export interface IGetStaticProps {
 }
 
 export interface SkuProps {
-  data: Product[];
+  products: Product[];
 }
