@@ -7,8 +7,6 @@ import { formatArray } from "./helpers";
 import { IGetStaticProps, SkuProps } from "./types";
 
 export default function Sku({ products }: SkuProps) {
-  const tableHeaders = ["Marknad", "Pris", "Valuta", "Start och slut"];
-
   if (!products)
     return (
       <CircularProgress
@@ -16,7 +14,7 @@ export default function Sku({ products }: SkuProps) {
       />
     );
 
-  return <ProductTable headers={tableHeaders} products={products} />;
+  return <ProductTable products={products} />;
 }
 
 export async function getStaticPaths() {

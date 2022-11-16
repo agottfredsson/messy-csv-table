@@ -10,13 +10,15 @@ import {
 
 import { ProductTableProps } from "./types";
 
-export const ProductTable = ({ headers, products }: ProductTableProps) => {
+const HEADERS = ["Marknad", "Pris", "Valuta", "Start och slut"];
+
+export const ProductTable = ({ products }: ProductTableProps) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
-            {headers.map((header) => (
+            {HEADERS.map((header) => (
               <TableCell key={header}>{header}</TableCell>
             ))}
           </TableRow>
