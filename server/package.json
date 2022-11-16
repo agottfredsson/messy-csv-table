@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "yarn clean && tsc && yarn copy-files && node ./bin/server.js",
+    "dev": "yarn clean && tsc && yarn copy-files && node ./bin/server.js",
     "clean": "rm -rf ./bin",
     "copy-files": "cp ./assets/* ./bin/"
   },
