@@ -46,17 +46,17 @@ const calculatePrices = (arr: Product[]) => {
 const appendCorrectIntervals = (products: Product[]) => {
   if (products.length == 1) return products;
 
-  const finish: Product[] = [];
+  const res: Product[] = [];
   products.forEach((product, i) => {
     if (i == 0) return;
-    finish.push({
+    res.push({
       ...products[i - 1],
       ValidUntil: product.ValidFrom,
     });
-    if (i == products.length - 1) finish.push(product);
+    if (i == products.length - 1) res.push(product);
   });
 
-  return finish;
+  return res;
 };
 
 //get the next available price
@@ -66,9 +66,9 @@ const getNextAvailablePrice = (
 ): Product | undefined => {
   return products
     .filter(
-      (e) =>
-        e.ValidFrom < (currentProduct.ValidUntil ?? "NULL") &&
-        (e.ValidUntil ?? "NULL") > (currentProduct.ValidUntil ?? "NULL")
+      (product) =>
+        product.ValidFrom < (currentProduct.ValidUntil ?? "NULL") &&
+        (product.ValidUntil ?? "NULL") > (currentProduct.ValidUntil ?? "NULL")
     )
     .sort((a, b) => a.UnitPrice - b.UnitPrice)
     .at(0);
