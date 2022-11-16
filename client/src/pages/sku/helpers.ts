@@ -2,7 +2,7 @@ import _ from "lodash";
 
 import { Product } from "../../types";
 
-export const formatArray = (products: Product[]) => {
+export const formatProductsArray = (products: Product[]) => {
   const markets = groupByMarket(products);
   const prices = markets.flatMap((market) => calculatePrices(market));
   return prices;

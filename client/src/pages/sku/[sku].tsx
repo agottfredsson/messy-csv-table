@@ -3,7 +3,7 @@ import { CircularProgress } from "@mui/material";
 
 import client from "../../apollo-client";
 import { ProductTable } from "../../components";
-import { formatArray } from "./helpers";
+import { formatProductsArray } from "./helpers";
 import { IGetStaticProps, SkuProps } from "./types";
 
 export default function Sku({ products }: SkuProps) {
@@ -41,7 +41,7 @@ export async function getStaticProps({ params }: IGetStaticProps) {
       }
     `,
   });
-  const res = formatArray(data.getProductsBySku);
+  const res = formatProductsArray(data.getProductsBySku);
 
   return {
     props: {
